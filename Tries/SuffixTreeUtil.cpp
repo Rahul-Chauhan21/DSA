@@ -1,10 +1,10 @@
+//Trie Tree are used for prefix based searches
 #include <iostream>
 #include <unordered_map>
 using namespace std;
-
 class TrieNode{
 public:
-    unordered_map<char, TrieNode*> children;
+    unordered_map<char, TrieNode*> children;//Use array if not using Unicode character set(every letter and character has  a number assigned to it)
 };
 
 class SuffixTree{
@@ -13,24 +13,24 @@ public:
     char endSymbol;
 
     SuffixTree(){
-        this->root = new TrieNode();
+        this->root = new TrieNode(); //root node contains a TrieNode which is an empty hashMap
         this->endSymbol = '*';
     }
 
-    void insertSubstringStartingAt(string str){
+    void insertSubstringStartingAt(string str){ //O(length) for each word. O(l*n) for complete set of words
         TrieNode* node = this->root;
             for(int i = 0; i < str.length(); i++){
                 char letter = str[i];
                 if(node->children.find(letter) == node->children.end()){
                     TrieNode* newNode = new TrieNode();
-                    node->children.insert({letter,newNode});
+                    node->children.insert({letter,newNode}); //inserting key in the hashMap rooted at the node and assigning an empty hashMap to it via newNode (TrieNode)
                 }
                 node = node->children[letter];
             }
             node->children.insert({this->endSymbol,NULL});
     }
 
-    bool contains(string str){
+    bool contains(string str){//O(length)
         TrieNode* node = this->root;
             for(char letter:str){
                 if(node->children.find(letter) == node->children.end()){
@@ -43,7 +43,7 @@ public:
     void deleteFromSuffixTree(string str){
         deleteSuffixEndingAt(this->root,str,0);
     }
-    bool deleteSuffixEndingAt(TrieNode* current,string str,int index){
+    bool deleteSuffixEndingAt(TrieNode* current,string str,int index){//O(length)
         if(index == str.length()){
             //check if this is a suffix by checking for endSymbol
             if(current->children.find(this->endSymbol) == current->children.end()){
@@ -72,6 +72,7 @@ int main(){
     obj.insertSubstringStartingAt("Hello");
     obj.insertSubstringStartingAt("Hell");
     obj.contains("Hell") ? cout << "true"<<endl : cout<<"false"<<endl;
-    obj.deleteFromSuffixTree("Hell");
-    obj.contains("Hell") ? cout << "true" : cout<<"false";
+    obj.deleteFromSuffixTree("Hello");
+    obj.contains("Hell") ? cout << "true" <<endl : cout<<"false"<<endl; // true because hell is a valid suffix in a tree
+    obj.contains("Hello") ? cout<<"true" : cout<<"false"; //false after being deleted
 }
