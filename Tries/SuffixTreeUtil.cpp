@@ -17,7 +17,7 @@ public:
         this->endSymbol = '*';
     }
 
-    void insertSubstringStartingAt(string str){ //O(length) for each word. O(l*n) for complete set of words
+    void insertInSuffixTree(string str){ //O(length) for each word. O(l*n) for complete set of words
         TrieNode* node = this->root;
             for(int i = 0; i < str.length(); i++){
                 char letter = str[i];
@@ -69,8 +69,8 @@ public:
 
 int main(){
     SuffixTree obj;
-    obj.insertSubstringStartingAt("Hello");
-    obj.insertSubstringStartingAt("Hell");
+    obj.insertInSuffixTree("Hello");
+    obj.insertInSuffixTree("Hell");
     obj.contains("Hell") ? cout << "true"<<endl : cout<<"false"<<endl;
     obj.deleteFromSuffixTree("Hello");
     obj.contains("Hell") ? cout << "true" <<endl : cout<<"false"<<endl; // true because hell is a valid suffix in a tree
