@@ -35,12 +35,12 @@ dogs
 catastroph
 catastroph
 doctor
-cat
-dog
-dogg
-do
-doctrinography
-dogge
+cat : 2
+dog : 8
+dogg : 3
+do : 9
+doctrinography : 0
+dogge : 3
 */
 
 #include <iostream>
@@ -69,7 +69,7 @@ public:
         this->root = new TrieNode();
     }
 
-    void insertNodeSuffixTree(string str){
+    void insertNodeSuffixTree(string str){ // O(S1+S2.. +SN) where Si is the length of string and n strings input
         TrieNode* node = this->root;
             for(int i = 0; i < str.length(); i++){
                 char letter = str[i];
@@ -82,7 +82,7 @@ public:
         node->isEnd = true;
     }
 
-    int contains(string str){
+    int contains(string str){ //O(R1 + R2...+RM) where Ri is the length of string searched and m queries performed.
         TrieNode* node = this->root;
             for(char c : str){
                 if(node->children[c - 'a'] == NULL){
