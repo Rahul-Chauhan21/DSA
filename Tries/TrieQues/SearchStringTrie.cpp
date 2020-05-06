@@ -23,7 +23,7 @@ public:
         this->root = new TrieNode();
     }
 
-    void insertNodeSuffixTree(string str){ // O(S1 + S2 +...+SN) si is the length of each string
+    void insertInTrie(string str){ // O(S1 + S2 +...+SN) si is the length of each string
         TrieNode* node = this->root;
             for(int i = 0; i < str.length(); i++){
                 char letter = str[i];
@@ -55,7 +55,7 @@ int main(){
         for(int i = 0; i < n; i++){
             string str;
             cin>>str;
-            obj->insertNodeSuffixTree(str);
+            obj->insertInTrie(str);
         }
         for(int i = 0; i < q; i++){
             string str;
