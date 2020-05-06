@@ -1,4 +1,10 @@
 //Trie Tree are used for prefix based searches
+/*
+
+
+A suffix tree can be viewed as a data structure built on top of a trie where, instead of just adding the string itself 
+into the trie, you would also add every possible suffix of that string
+*/
 #include <iostream>
 #include <unordered_map>
 using namespace std;
@@ -7,17 +13,17 @@ public:
     unordered_map<char, TrieNode*> children;//Use array if not using Unicode character set(every letter and character has  a number assigned to it)
 };
 
-class SuffixTree{
+class Trie{
 public:
     TrieNode* root;
     char endSymbol;
 
-    SuffixTree(){
+    Trie(){
         this->root = new TrieNode(); //root node contains a TrieNode which is an empty hashMap
         this->endSymbol = '*';
     }
 
-    void insertInSuffixTree(string str){ //O(length) for each word. O(l*n) for complete set of words
+    void insertInTrie(string str){ //O(length) for each word. O(l*n) for complete set of words
         TrieNode* node = this->root;
             for(int i = 0; i < str.length(); i++){
                 char letter = str[i];
@@ -40,10 +46,10 @@ public:
             }
         return node->children.find(this->endSymbol) != node->children.end();
     }
-    void deleteFromSuffixTree(string str){
-        deleteSuffixEndingAt(this->root,str,0);
+    void deleteFromTrie(string str){
+        deleteStringEndingAt(this->root,str,0);
     }
-    bool deleteSuffixEndingAt(TrieNode* current,string str,int index){//O(length)
+    bool deleteStringEndingAt(TrieNode* current,string str,int index){//O(length)
         if(index == str.length()){
             //check if this is a suffix by checking for endSymbol
             if(current->children.find(this->endSymbol) == current->children.end()){
@@ -58,7 +64,7 @@ public:
             return false;
         }
         current = current->children[letter];
-        bool shouldDelete = deleteSuffixEndingAt(current,str,index+1);
+        bool shouldDelete = deleteStringEndingAt(current,str,index+1);
         if(shouldDelete){
             current->children.erase(str[index+1]);
             return current->children.size() == 0;
@@ -68,11 +74,11 @@ public:
 };
 
 int main(){
-    SuffixTree obj;
-    obj.insertInSuffixTree("Hello");
-    obj.insertInSuffixTree("Hell");
+    Trie obj;
+    obj.insertInTrie("Hello");
+    obj.insertInTrie("Hell");
     obj.contains("Hell") ? cout << "true"<<endl : cout<<"false"<<endl;
-    obj.deleteFromSuffixTree("Hello");
+    obj.deleteFromTrie("Hello");
     obj.contains("Hell") ? cout << "true" <<endl : cout<<"false"<<endl; // true because hell is a valid suffix in a tree
     obj.contains("Hello") ? cout<<"true" : cout<<"false"; //false after being deleted
 }
