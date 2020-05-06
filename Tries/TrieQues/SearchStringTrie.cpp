@@ -1,4 +1,18 @@
 //Searching Valid Suffix in a trie data structure.
+/*
+Input:
+1
+8 3
+the a there answer any by bye their
+the
+an
+any
+
+Output:
+1
+0
+1
+*/
 #include <iostream>
 using namespace std;
 
