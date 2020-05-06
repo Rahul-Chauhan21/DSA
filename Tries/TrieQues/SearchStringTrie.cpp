@@ -1,4 +1,4 @@
-//Searching Valid Suffix in a trie data structure.
+//Searching a valid string in a trie data structure.
 /*
 Input:
 1
