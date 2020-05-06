@@ -4,6 +4,8 @@
 
 A suffix tree can be viewed as a data structure built on top of a trie where, instead of just adding the string itself 
 into the trie, you would also add every possible suffix of that string
+
+Reference : https://stackoverflow.com/questions/13893950/suffix-tree-and-tries-what-is-the-difference
 */
 #include <iostream>
 #include <unordered_map>
