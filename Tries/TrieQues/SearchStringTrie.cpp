@@ -15,11 +15,11 @@ public:
     }
 };
 
-class SuffixTree{
+class Trie{
 public:
     TrieNode* root;
 
-    SuffixTree(){
+    Trie(){
         this->root = new TrieNode();
     }
 
@@ -48,7 +48,7 @@ public:
 };
 
 int main(){
-    SuffixTree* obj = new SuffixTree();
+    Trie* obj = new Trie();
     int t,n,q;
     cin>>t>>n>>q;
     while(t--){
