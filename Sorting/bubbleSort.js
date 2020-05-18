@@ -5,7 +5,7 @@ function bubbleSort(array){
   let counter = 0;
   while(!isSorted){  // keep traversing through array if any swap takes place in the previous pass.
     isSorted = true;
-      for(let i = 0; i < array.length - 1 - counter; i++){ // counter is used for setting sorted elements to the end.
+      for(let i = 0; i < array.length - 1 - counter; i++){ //each pass fixes a last element (maxima) of current subarray.
         if(array[i] > array[i+1]){
           swap(i,i+1,array);
           isSorted = false;
