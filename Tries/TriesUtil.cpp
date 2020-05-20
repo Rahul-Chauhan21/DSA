@@ -1,4 +1,4 @@
-//Trie Tree are used for prefix based searches
+//Trie Tree is a data structures that is used for storing collection of strings, it can be used for prefix based searches etc.
 /*
 
 
