@@ -17,7 +17,7 @@ public:
         this->endSymbol = '*';
         this->populateSuffixTrieFrom(str);
     }
-
+    // O(n^2) time | O(n^2) space where n is length of string str
     void populateSuffixTrieFrom(string str){
         for(int i = 0; i < str.length(); i++){
             this->insertSubstringStartingAt(i,str);
@@ -36,6 +36,7 @@ public:
             }
         currentNode->children.insert({this->endSymbol,NULL});
     }
+    // O(m) time | O(1) space where m is the length of suffix searched.
     bool contains(string str){
         TrieNode* currentNode = this->root;
         for(char c : str){
