@@ -10,6 +10,9 @@ Reference : https://stackoverflow.com/questions/13893950/suffix-tree-and-tries-w
 #include <iostream>
 #include <unordered_map>
 using namespace std;
+/*every trie node denotes a key of a hashtable pointing to another hashtable, all the values to which it points will 
+be the other nodes in the trie whose keys will be a specific letter that comes after the previous letter and 
+that points to another hash table and so on and so forth*/
 class TrieNode{
 public:
     unordered_map<char, TrieNode*> children;//Use array if not using Unicode character set(every letter and character has  a number assigned to it)
