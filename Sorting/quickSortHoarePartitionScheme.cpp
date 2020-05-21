@@ -1,3 +1,6 @@
+//Compiler Optimisation helps us space complexity on the call stack to logn
+//Heres a reference for tail call optimisation https://www.youtube.com/watch?v=Wpkh5YSqwqg
+
 /*
 Hoare's Partition Scheme
 By picking a pivot, every number that is smaller than the pivot is to be moved to the left of the pivot
