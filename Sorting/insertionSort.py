@@ -5,13 +5,19 @@
 # O*n^2) time | O(1) space Avg and Worst Case
 # O(n) time | O(1) space Best Case (Sorted Array)
 
+# How does it work?
+# We sort it by creating space at the beginning of the list that is a
+# tentatively sorted list and then iterate through the rest of the array
+# and each number in the rest of the array, we insert that number in the
+# tentatively sorted list.
+
 
 def insertionSort(arr):
 
     # Traverse through 1 to len(arr)
     for i in range(1, len(arr)):
         j = i
-        while j > 0 & & arr[j] < arr[j - 1]:
+        while j > 0 and arr[j] < arr[j - 1]:
             swap(j, j-1, arr)
 
 
