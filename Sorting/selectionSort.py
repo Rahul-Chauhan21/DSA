@@ -1,4 +1,17 @@
+# How does it work?
+
+# We divide the list into two separate lists within that list,
+# one sub list that represents the sorted numbers and the other
+# represents the  unsorted numbers.
+# So at the beginning we start with the entire list as an unsorted list.
+# We iterate through this unsorted list a bunch of times to find the
+# smallest number in that list. Once we have the smallest number
+# we append it to the sorted sub list. We keep doing that till we
+# exhaust the unsorted sub list.
+
 # O(n^2) time | O(1) space Best, Avg, Worst
+
+
 def selectionSort(array):
     currentIdx = 0
     while currentIdx < len(array) - 1:
