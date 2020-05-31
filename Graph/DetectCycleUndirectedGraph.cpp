@@ -40,7 +40,7 @@ bool isCyclicUtil(vector<int>adj[], vector<int> vis, int curr){
 bool isCyclic(int V, vector<int> adj[]){
     vector<int> vis(V,0);
         for(int i = 0; i < V; i++){
-            vis[i] = 1;
+            /*vis[i] = 1;
                 for(int j = 0; j < adj[i].size(); j++){
                     //cout<<i <<" j :" <<adj[i][j]<<" "<<vis[adj[i][j]]<<endl;
                     if(isCyclicUtil(adj,vis,adj[i][j])){
@@ -48,7 +48,11 @@ bool isCyclic(int V, vector<int> adj[]){
                     }
                     //cout<<i <<" j :" <<adj[i][j]<<" "<<vis[adj[i][j]]<<endl;
                 }
-            vis[i] = 0;
+            vis[i] = 0;*/
+
+                if(isCyclicUtil(adj,vis,i)){
+                    return true;
+                }
         }
     return false;
 }
