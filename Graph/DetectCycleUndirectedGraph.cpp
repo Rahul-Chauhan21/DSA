@@ -11,7 +11,6 @@ using namespace std;
     0 3
     2 3
     o/p: 1
-
     1
     4 3
     0 1
