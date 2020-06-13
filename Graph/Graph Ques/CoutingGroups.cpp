@@ -1,3 +1,10 @@
+/*
+Problem Statement:
+Consider a 2D array, n x n matrix where each cell contains either the value 0 or 1. Any two cells
+in the matrix fall into the same group if |x[1] - x[2]| + |y[1] -y[2]| = 1(they adjoin by row or column)
+and both cells contains the value 1. Determine the sizes of all the groups in the matrix, then for each test
+in query array, append the number of groups of that size to return array.
+*/
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -59,8 +66,8 @@ void dfs(vector<vector<int>> &grid, int i, int j){
     dfs(grid, i, j + 1);
     dfs(grid, i, j - 1);
 }
-
-vector<int> countGroups(vector<vector<int>> grid, vector<int> queries){
+// O(n * n) time | O(len(queries))
+vector<int> countGroups(vector<vector<int>>& grid, vector<int>& queries){
     unordered_map<int,int> sizes;
     vector<int> res(queries.size(), 0);
         for(int i = 0; i < grid.size(); i++){
