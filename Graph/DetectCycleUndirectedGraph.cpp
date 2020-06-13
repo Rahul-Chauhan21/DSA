@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+/*
+Detecting Cycle using graph coloring where the colors are 0, 1, 2
+*/
 // O(V + E) time
 /*
     test case:
