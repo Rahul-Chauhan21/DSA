@@ -1,3 +1,47 @@
+//LeetCode Problem Reverse a Linked List
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+    void reverseListHelper(ListNode* curr, ListNode* prev, ListNode** head){
+        if(!curr->next){
+            *head = curr;
+            curr->next = prev;
+            return;
+        }
+        
+        ListNode* next = curr->next;
+        curr->next = prev;
+        
+        reverseListHelper(next,curr,head);
+    }
+public:
+    //O(N) time | O(1) space using tail recursion
+    ListNode* reverseList(ListNode* head) {
+        /*if(head == NULL || head->next == NULL){
+            return head;
+        }
+        ListNode* newHead = reverseList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return newHead;
+        */
+        if(!head){
+            return NULL;
+        }
+        reverseListHelper(head,NULL,&head);
+        return head;
+    }
+};
+// using a class
 #include <iostream>
 using namespace std;
 
@@ -79,3 +123,4 @@ public:
             lis->traverse();
         return 0;
     }
+
