@@ -22,7 +22,7 @@ int findGcd(vector<int>& v){
 }
 
 int main(void){
-    vector<int> v = {2,4,6,8,16};
+    vector<int> v = {2,6, 4,8,16};
     cout<<findGcd(v);
     return 0;
 }
