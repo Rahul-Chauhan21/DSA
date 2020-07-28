@@ -16,6 +16,7 @@ Bombay->Delhi, Delhi->Goa, Goa->Chennai, Chennai->Banglore,
 #include <unordered_map>
 using namespace std;
 
+//O(n) time | O(n) space
 void printSequence(unordered_map<string, string> dataSet)
 {
     unordered_map<string, string> reversemap;
